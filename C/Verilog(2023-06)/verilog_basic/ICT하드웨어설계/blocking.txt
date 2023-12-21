@@ -1,0 +1,17 @@
+`timescale 1ns/1ns
+
+module non_blk1;
+	reg a,b,cik;
+
+	initial begin
+	  a = 0;
+	  b = 1;
+	  cik = 0;
+	end
+	always cik = #5 ~ cik;
+
+	always @(posedge cik) begin
+	  a = b;
+	  b = a;
+	end
+endmodule
